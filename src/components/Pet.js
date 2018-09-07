@@ -24,7 +24,7 @@ const { animalToAdopt } = props;
             </dl>
             <button className="adopt" onClick={e => {
                 e.preventDefault();
-                this.props.onAdoptPet()}}
+                props.onAdoptPet()}}
                >Adopt</button>
         </main>
 </section>
