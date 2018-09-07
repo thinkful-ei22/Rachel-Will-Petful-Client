@@ -1,6 +1,7 @@
 
 import {API_BASE_URL} from '../config'; 
 
+//console.log(API_BASE_URL);
 export const fetchDog = () => dispatch => {
     dispatch(fetchDogRequest());
     //GET redundant?
@@ -20,8 +21,8 @@ export const fetchDog = () => dispatch => {
 
 export const FETCH_DOG_REQUEST = 'FETCH_DOG_REQUEST';
 export const fetchDogRequest = () => ({
-    type: FETCH_DOG_REQUEST,
-    loading: true
+    type: FETCH_DOG_REQUEST
+   
 });
 
 
@@ -29,15 +30,15 @@ export const FETCH_DOG_SUCCESS = 'FETCH_DOG_SUCCESS';
 export const fetchDogSuccess = (dog) => ({
    
     type: FETCH_DOG_SUCCESS,
-    dog,
-    loading: false
+    data: dog
+   
 });
 
 export const FETCH_DOG_ERROR = 'FETCH_DOG_ERROR';
 export const fetchDogError = error => ({
     type: FETCH_DOG_ERROR,
-    error,
-    loading: false
+    error
+   
 });
 
 
@@ -52,7 +53,7 @@ export const adoptDog = () => dispatch => {
         }
         return res.json()
     }).then(() =>
-    dispatch(fetchDogRequest())
+    dispatch(fetchDog())
 ).catch(err => {
     dispatch(adoptDogError(err))
 })
@@ -61,8 +62,8 @@ export const adoptDog = () => dispatch => {
 
 export const ADOPT_DOG_REQUEST = 'ADOPT_DOG_REQUEST';
 export const adoptDogRequest = () => ({
-    type: ADOPT_DOG_REQUEST,
-    loading: true
+    type: ADOPT_DOG_REQUEST
+  
 });
 
 
@@ -76,6 +77,6 @@ export const adoptDogRequest = () => ({
 export const ADOPT_DOG_ERROR = 'ADOPT_DOG_ERROR';
 export const adoptDogError = error => ({
     type: ADOPT_DOG_ERROR,
-    error,
-    loading: false
+    error
+    
 });

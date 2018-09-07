@@ -18,7 +18,7 @@ import {  FETCH_CAT_REQUEST, FETCH_CAT_SUCCESS, FETCH_CAT_ERROR,
   
  const initialState = {
      loading: false,
-     data: cat1,
+     data: null,
      error: null
  }
  //console.log(initialState);

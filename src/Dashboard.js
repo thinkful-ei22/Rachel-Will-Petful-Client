@@ -19,6 +19,12 @@ export  class Dashboard extends React.Component {
 
     
     render(){  
+        console.log(this.props);
+        if(!this.props.catData || !this.props.dogData ){
+            return <h2>Loading</h2>
+        } else {
+
+        
         
     // const { dogToAdopt } = props;
     // const { catToAdopt } = props;
@@ -35,6 +41,7 @@ export  class Dashboard extends React.Component {
 
 
        );
+    }
     }
    } 
    export const mapStateToProps = state => ({
