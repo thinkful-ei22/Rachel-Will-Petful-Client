@@ -1,9 +1,10 @@
-//add in loading functionality
+
+import {API_BASE_URL} from '../config'; 
 
 export const fetchDog = () => dispatch => {
     dispatch(fetchDogRequest());
     //GET redundant?
-    return fetch('/dog', {method: 'GET' }).then(res => {
+    return fetch(`${API_BASE_URL}/api/dog`, {method: 'GET' }).then(res => {
         //what does res not okay look like?
         if(!res.ok){
             throw new Error(res.statusText);
@@ -43,7 +44,7 @@ export const fetchDogError = error => ({
 
 export const adoptDog = () => dispatch => {
     dispatch(adoptDogRequest());
-    return fetch('/dog', {method: 'DELETE' }
+    return fetch(`${API_BASE_URL}/api/dog`, {method: 'DELETE' }
 ).then(res => {
         //what does res not okay look like?
         if(!res.ok){

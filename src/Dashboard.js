@@ -1,7 +1,8 @@
 import React from 'react';
 import Pet from './components/Pet';
 import './App.css';
-import { fetchCat } from './actions';
+import { fetchCat, fetchDog, adoptCat, adoptDog } from './actions';
+
 import { connect } from 'react-redux';
 //import { Component } from 'react';
 
@@ -12,6 +13,7 @@ export  class Dashboard extends React.Component {
     componentDidMount() {
         console.log('Component Did Mount Fired');
         this.props.dispatch(fetchCat());
+        this.props.dispatch(fetchDog());
     }
 
 
@@ -22,9 +24,13 @@ export  class Dashboard extends React.Component {
     // const { catToAdopt } = props;
        return (
         <div className="container">
-           <Pet animalToAdopt={this.props.dogData} />
+           <Pet 
+           animalToAdopt={this.props.dogData}
+           onAdoptPet={() => this.props.dispatch(adoptDog())} />
 
-            <Pet animalToAdopt={this.props.catData} />
+            <Pet 
+            animalToAdopt={this.props.catData}
+            onAdoptPet={() => this.props.dispatch(adoptCat())}  />
      </div>
 
 

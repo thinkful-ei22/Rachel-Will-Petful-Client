@@ -14,7 +14,8 @@ import {  FETCH_CAT_REQUEST, FETCH_CAT_SUCCESS, FETCH_CAT_ERROR,
      story: 'Thrown on the street'
    };
  
-   console.log(cat1);
+  // console.log(cat1);
+  
  const initialState = {
      loading: false,
      data: cat1,

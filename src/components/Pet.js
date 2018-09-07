@@ -22,7 +22,10 @@ const { animalToAdopt } = props;
                 <dt>Story </dt>
                 <dd>{animalToAdopt.story} </dd>
             </dl>
-            <button className="adopt">Adopt</button>
+            <button className="adopt" onClick={e => {
+                e.preventDefault();
+                this.props.onAdoptPet()}}
+               >Adopt</button>
         </main>
 </section>
     )

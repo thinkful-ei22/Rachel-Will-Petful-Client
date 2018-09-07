@@ -1,7 +1,8 @@
+import {API_BASE_URL} from '../config'; 
 
 export const fetchCat = () => dispatch => {
     dispatch(fetchCatRequest());
-    return fetch('/cat').then(res => {
+    return fetch(`${API_BASE_URL}/api/cat`).then(res => {
         //what does res not okay look like?
         if(!res.ok){
             throw new Error(res.statusText);
@@ -42,7 +43,7 @@ export const fetchCatError = error => ({
 
 export const adoptCat = () => dispatch => {
     dispatch(adoptCatRequest());
-    return fetch('/cat', { method: 'DELETE' }
+    return fetch(`${API_BASE_URL}/api/cat`, { method: 'DELETE' }
     ).then(res => {
         //what does res not okay look like?
         if(!res.ok){
