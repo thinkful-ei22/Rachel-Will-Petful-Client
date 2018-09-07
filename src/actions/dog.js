@@ -51,7 +51,7 @@ export const adoptDog = () => dispatch => {
         if(!res.ok){
             throw new Error(res.statusText);
         }
-        return res.json()
+        return;
     }).then(() =>
     dispatch(fetchDog())
 ).catch(err => {
